@@ -160,7 +160,7 @@
 
         <!-- Three complication slots: sunrise/sunset, steps, heart rate (dimmed in always-on) -->
         <ComplicationSlot slotId="1" x="65" y="290" width="130" height="80"
-            displayName="slot_left" supportedTypes="SHORT_TEXT RANGED_VALUE" isCustomizable="true">
+            displayName="slot_left" supportedTypes="SHORT_TEXT" isCustomizable="false">
             <DefaultProviderPolicy defaultSystemProvider="SUNRISE_SUNSET" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingRoundRect x="10" y="-4" width="110" height="84" cornerRadius="20" />
             <Complication type="SHORT_TEXT">
@@ -177,24 +177,10 @@
                     </Text>
                 </PartText>
             </Complication>
-            <Complication type="RANGED_VALUE">
-                <PartImage x="50" y="0" width="30" height="30">
-                    <Variant mode="AMBIENT" target="alpha" value="110" />
-                    <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
-                </PartImage>
-                <PartText x="0" y="32" width="130" height="40">
-                    <Variant mode="AMBIENT" target="alpha" value="110" />
-                    <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="28" color="#FFFFFFFF">
-                            <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
-                        </Font>
-                    </Text>
-                </PartText>
-            </Complication>
         </ComplicationSlot>
 
         <ComplicationSlot slotId="2" x="160" y="290" width="130" height="80"
-            displayName="slot_center" supportedTypes="SHORT_TEXT RANGED_VALUE" isCustomizable="true">
+            displayName="slot_center" supportedTypes="SHORT_TEXT" isCustomizable="false">
             <DefaultProviderPolicy defaultSystemProvider="STEP_COUNT" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingRoundRect x="10" y="-4" width="110" height="84" cornerRadius="20" />
             <Complication type="SHORT_TEXT">
@@ -211,41 +197,13 @@
                     </Text>
                 </PartText>
             </Complication>
-            <Complication type="RANGED_VALUE">
-                <PartImage x="50" y="0" width="30" height="30">
-                    <Variant mode="AMBIENT" target="alpha" value="110" />
-                    <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
-                </PartImage>
-                <PartText x="0" y="32" width="130" height="40">
-                    <Variant mode="AMBIENT" target="alpha" value="110" />
-                    <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="28" color="#FFFFFFFF">
-                            <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
-                        </Font>
-                    </Text>
-                </PartText>
-            </Complication>
         </ComplicationSlot>
 
         <ComplicationSlot slotId="3" x="255" y="290" width="130" height="80"
-            displayName="slot_right" supportedTypes="SHORT_TEXT RANGED_VALUE" isCustomizable="true">
+            displayName="slot_right" supportedTypes="SHORT_TEXT" isCustomizable="false">
             <DefaultProviderPolicy defaultSystemProvider="HEART_RATE" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingRoundRect x="10" y="-4" width="110" height="84" cornerRadius="20" />
             <Complication type="SHORT_TEXT">
-                <PartImage x="50" y="0" width="30" height="30">
-                    <Variant mode="AMBIENT" target="alpha" value="110" />
-                    <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
-                </PartImage>
-                <PartText x="0" y="32" width="130" height="40">
-                    <Variant mode="AMBIENT" target="alpha" value="110" />
-                    <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="28" color="#FFFFFFFF">
-                            <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
-                        </Font>
-                    </Text>
-                </PartText>
-            </Complication>
-            <Complication type="RANGED_VALUE">
                 <PartImage x="50" y="0" width="30" height="30">
                     <Variant mode="AMBIENT" target="alpha" value="110" />
                     <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />

@@ -3,8 +3,8 @@
 Pure-black digital face: 24h time with seconds, full day name and
 DD/MM/YYYY date, battery ring (outer, turns red below 15%), a selectable
 inner ring (time left in the day by default, step goal, heart rate, or off) with
-its own colour, three customisable complication slots (default:
-sunrise/sunset, steps, heart rate). Accent colour is
+its own colour, three fixed complications
+(sunrise/sunset, steps, heart rate). Accent colour is
 selectable in the watch's own face editor. Unread notifications use the
 watch's own system dot.
 
@@ -43,8 +43,9 @@ The last command is needed because OnePlus's face picker doesn't list
 sideloaded faces. If you switch away, rerun it to switch back.
 
 ## Customise
-Long-press the face → Customise: change the accent colour, the inner ring,
-or tap a slot to swap its complication (weather, next event, etc.).
+Long-press the face → Customise: change the accent colour or the inner
+ring. The complications are fixed; change their providers in
+`watchface.xml`.
 
 Seconds show while the screen is awake; Wear OS refreshes always-on mode
 once a minute, so the dimmed layout shows HH:MM only, with the date and
