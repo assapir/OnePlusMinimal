@@ -125,8 +125,21 @@
         <Group x="0" y="0" width="450" height="450" name="date">
             <Variant mode="AMBIENT" target="alpha" value="110" />
         <!-- Battery percentage between the rings at 12 o'clock, where they are centred -->
-        <PartText x="165" y="12" width="120" height="33">
-            <Text align="CENTER">
+        <!-- Battery icon: outline, nub, and a fill that follows the charge level -->
+        <PartDraw x="0" y="0" width="450" height="450">
+            <RoundRectangle x="189" y="23" width="18" height="11" cornerRadiusX="2" cornerRadiusY="2">
+                <Stroke color="[CONFIGURATION.accent]" thickness="1.5" />
+            </RoundRectangle>
+            <Rectangle x="207" y="26" width="2" height="5">
+                <Fill color="[CONFIGURATION.accent]" />
+            </Rectangle>
+            <Rectangle x="191" y="25" width="14" height="7">
+                <Transform target="width" value="14 * [BATTERY_PERCENT] / 100" />
+                <Fill color="[CONFIGURATION.accent]" />
+            </Rectangle>
+        </PartDraw>
+        <PartText x="214" y="12" width="80" height="33">
+            <Text align="START">
                 <Font family="SYNC_TO_DEVICE" size="24" color="[CONFIGURATION.accent]" weight="MEDIUM">
                     <Template>%s%%<Parameter expression="[BATTERY_PERCENT]" /></Template>
                 </Font>
