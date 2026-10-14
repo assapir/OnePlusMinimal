@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Minimal 24</string>
+    <string name="accent_label">Accent colour</string>
+    <string name="accent_orange">Orange</string>
+    <string name="accent_blue">Blue</string>
+    <string name="accent_green">Green</string>
+    <string name="accent_teal">Teal</string>
+    <string name="accent_pink">Pink</string>
+    <string name="accent_white">White</string>
+    <string name="slot_left">Left</string>
+    <string name="slot_center">Centre</string>
+    <string name="slot_right">Right</string>
+    <string name="ring_color_label">Inner ring colour</string>
+    <string name="ring_amber">Amber</string>
+    <string name="ring_sky">Sky</string>
+    <string name="ring_mint">Mint</string>
+    <string name="ring_aqua">Aqua</string>
+    <string name="ring_rose">Rose</string>
+    <string name="ring_white">White</string>
+    <string name="inner_ring_label">Inner ring</string>
+    <string name="ring_off">Off</string>
+    <string name="ring_steps">Step goal</string>
+    <string name="ring_day">Day progress</string>
+    <string name="ring_heart">Heart rate</string>
+</resources>
