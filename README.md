@@ -52,3 +52,6 @@ once a minute, so the dimmed layout shows HH:MM only, with the date and
 complications dimmed.
 
 Step goal is set with `STEP_GOAL` in `watchface.xml` (default 8000).
+
+## License
+GPL-3.0-or-later. See `LICENSE`.
