@@ -1,5 +1,7 @@
 # Minimal 24 — Watch Face Format face for OnePlus Watch (Wear OS 5+)
 
+<img src="app/src/main/res/drawable/preview.png" alt="Minimal 24 watch face" width="300">
+
 Pure-black digital face: 24h time with seconds, full day name and
 DD/MM/YYYY date, battery ring (outer, turns red below 15%), a selectable
 inner ring (time left in the day by default, step goal, heart rate, or off) with
