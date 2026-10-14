@@ -188,7 +188,7 @@
         </Group>
 
         <!-- Three complication slots: sunrise/sunset, steps, heart rate (dimmed in always-on) -->
-        <ComplicationSlot slotId="1" x="65" y="296" width="130" height="80"
+        <ComplicationSlot slotId="1" x="82" y="288" width="130" height="80"
             displayName="slot_left" supportedTypes="SHORT_TEXT" isCustomizable="false">
             <DefaultProviderPolicy defaultSystemProvider="SUNRISE_SUNSET" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingRoundRect x="10" y="-4" width="110" height="84" cornerRadius="20" />
@@ -208,7 +208,7 @@
             </Complication>
         </ComplicationSlot>
 
-        <ComplicationSlot slotId="2" x="160" y="296" width="130" height="80"
+        <ComplicationSlot slotId="2" x="160" y="288" width="130" height="80"
             displayName="slot_center" supportedTypes="SHORT_TEXT" isCustomizable="false">
             <DefaultProviderPolicy defaultSystemProvider="STEP_COUNT" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingRoundRect x="10" y="-4" width="110" height="84" cornerRadius="20" />
@@ -228,7 +228,7 @@
             </Complication>
         </ComplicationSlot>
 
-        <ComplicationSlot slotId="3" x="255" y="296" width="130" height="80"
+        <ComplicationSlot slotId="3" x="238" y="288" width="130" height="80"
             displayName="slot_right" supportedTypes="SHORT_TEXT" isCustomizable="false">
             <DefaultProviderPolicy defaultSystemProvider="HEART_RATE" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingRoundRect x="10" y="-4" width="110" height="84" cornerRadius="20" />
