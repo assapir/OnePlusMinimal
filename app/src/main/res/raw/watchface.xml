@@ -31,10 +31,11 @@
 
     <Scene backgroundColor="#FF000000">
 
-        <!-- Thin ring -->
-        <PartDraw x="0" y="0" width="450" height="450">
+        <!-- Faint battery track, so the drained part stays visible -->
+        <PartDraw x="0" y="0" width="450" height="450" alpha="56">
+            <Variant mode="AMBIENT" target="alpha" value="0" />
             <Ellipse x="9" y="9" width="432" height="432">
-                <Stroke color="#FF2A2A2A" thickness="1" />
+                <Stroke color="[CONFIGURATION.accent]" thickness="5" />
             </Ellipse>
         </PartDraw>
 
@@ -67,6 +68,12 @@
         <ListConfiguration id="inner_ring">
             <ListOption id="1">
                 <!-- Steps toward daily goal -->
+                <PartDraw x="0" y="0" width="450" height="450" alpha="50">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
+                    <Ellipse x="35" y="35" width="380" height="380">
+                        <Stroke color="[CONFIGURATION.ring_color]" thickness="3" />
+                    </Ellipse>
+                </PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
                     <Arc centerX="225" centerY="225" width="380" height="380" startAngle="0" endAngle="0">
@@ -77,6 +84,12 @@
             </ListOption>
             <ListOption id="2">
                 <!-- Time left in the day: full at midnight, empty by 23:59 -->
+                <PartDraw x="0" y="0" width="450" height="450" alpha="50">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
+                    <Ellipse x="35" y="35" width="380" height="380">
+                        <Stroke color="[CONFIGURATION.ring_color]" thickness="3" />
+                    </Ellipse>
+                </PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
                     <Arc centerX="225" centerY="225" width="380" height="380" startAngle="0" endAngle="0">
@@ -87,6 +100,12 @@
             </ListOption>
             <ListOption id="3">
                 <!-- Heart rate as a fraction of 200 bpm -->
+                <PartDraw x="0" y="0" width="450" height="450" alpha="50">
+                    <Variant mode="AMBIENT" target="alpha" value="0" />
+                    <Ellipse x="35" y="35" width="380" height="380">
+                        <Stroke color="[CONFIGURATION.ring_color]" thickness="3" />
+                    </Ellipse>
+                </PartDraw>
                 <PartDraw x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
                     <Arc centerX="225" centerY="225" width="380" height="380" startAngle="0" endAngle="0">
@@ -100,16 +119,16 @@
         <!-- Date: Wednesday / 14/10/2026 (dimmed in always-on) -->
         <Group x="0" y="0" width="450" height="450" name="date">
             <Variant mode="AMBIENT" target="alpha" value="110" />
-        <PartText x="25" y="78" width="400" height="44">
+        <PartText x="25" y="84" width="400" height="40">
             <Text align="CENTER">
-                <Font family="SYNC_TO_DEVICE" size="32" color="#FFB0B0B0" weight="NORMAL">
+                <Font family="SYNC_TO_DEVICE" size="30" color="[CONFIGURATION.accent]" weight="MEDIUM">
                     <Template>%s<Parameter expression="[DAY_OF_WEEK_F]" /></Template>
                 </Font>
             </Text>
         </PartText>
-        <PartText x="25" y="120" width="400" height="40">
+        <PartText x="25" y="122" width="400" height="34">
             <Text align="CENTER">
-                <Font family="SYNC_TO_DEVICE" size="28" color="#FF9A9A9A" weight="NORMAL">
+                <Font family="SYNC_TO_DEVICE" size="24" color="#FF9A9A9A" weight="NORMAL">
                     <Template>%s/%s/%s
                         <Parameter expression="[DAY_Z]" />
                         <Parameter expression="[MONTH_Z]" />
@@ -120,13 +139,12 @@
         </PartText>
         </Group>
 
-        <!-- Time, 24h, with seconds (seconds hidden in always-on mode) -->
-        <Group x="0" y="162" width="450" height="112" name="time">
-            <!-- Interactive: HH:MM in white, :SS in grey -->
-            <PartText x="0" y="0" width="275" height="112">
+        <!-- Time, 24h: big HH:MM, smaller seconds on the same baseline (hidden in always-on) -->
+        <Group x="0" y="160" width="450" height="120" name="time">
+            <PartText x="0" y="0" width="331" height="120">
                 <Variant mode="AMBIENT" target="alpha" value="0" />
                 <Text align="END">
-                    <Font family="SYNC_TO_DEVICE" size="88" color="#FFFFFFFF" weight="NORMAL">
+                    <Font family="SYNC_TO_DEVICE" size="108" color="#FFFFFFFF" weight="NORMAL">
                         <Template>%s:%s
                             <Parameter expression="[HOUR_0_23_Z]" />
                             <Parameter expression="[MINUTE_Z]" />
@@ -134,21 +152,19 @@
                     </Font>
                 </Text>
             </PartText>
-            <PartText x="275" y="0" width="175" height="112">
+            <PartText x="337" y="52" width="113" height="60">
                 <Variant mode="AMBIENT" target="alpha" value="0" />
                 <Text align="START">
-                    <Font family="SYNC_TO_DEVICE" size="88" color="#FF9A9A9A" weight="NORMAL">
-                        <Template>:%s
-                            <Parameter expression="[SECOND_Z]" />
-                        </Template>
+                    <Font family="SYNC_TO_DEVICE" size="46" color="#FF9A9A9A" weight="NORMAL">
+                        <Template>%s<Parameter expression="[SECOND_Z]" /></Template>
                     </Font>
                 </Text>
             </PartText>
-            <!-- Always-on: HH:MM only -->
-            <PartText x="0" y="0" width="450" height="112" alpha="0">
+            <!-- Always-on: HH:MM only, centred -->
+            <PartText x="0" y="0" width="450" height="120" alpha="0">
                 <Variant mode="AMBIENT" target="alpha" value="255" />
                 <Text align="CENTER">
-                    <Font family="SYNC_TO_DEVICE" size="88" color="#FFFFFFFF" weight="NORMAL">
+                    <Font family="SYNC_TO_DEVICE" size="108" color="#FFFFFFFF" weight="NORMAL">
                         <Template>%s:%s
                             <Parameter expression="[HOUR_0_23_Z]" />
                             <Parameter expression="[MINUTE_Z]" />
@@ -159,19 +175,19 @@
         </Group>
 
         <!-- Three complication slots: sunrise/sunset, steps, heart rate (dimmed in always-on) -->
-        <ComplicationSlot slotId="1" x="65" y="290" width="130" height="80"
+        <ComplicationSlot slotId="1" x="65" y="296" width="130" height="80"
             displayName="slot_left" supportedTypes="SHORT_TEXT" isCustomizable="false">
             <DefaultProviderPolicy defaultSystemProvider="SUNRISE_SUNSET" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingRoundRect x="10" y="-4" width="110" height="84" cornerRadius="20" />
             <Complication type="SHORT_TEXT">
-                <PartImage x="50" y="0" width="30" height="30">
+                <PartImage x="51" y="0" width="28" height="28">
                     <Variant mode="AMBIENT" target="alpha" value="110" />
                     <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
                 </PartImage>
                 <PartText x="0" y="32" width="130" height="40">
                     <Variant mode="AMBIENT" target="alpha" value="110" />
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="28" color="#FFFFFFFF">
+                        <Font family="SYNC_TO_DEVICE" size="26" color="#FFFFFFFF">
                             <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -179,19 +195,19 @@
             </Complication>
         </ComplicationSlot>
 
-        <ComplicationSlot slotId="2" x="160" y="290" width="130" height="80"
+        <ComplicationSlot slotId="2" x="160" y="296" width="130" height="80"
             displayName="slot_center" supportedTypes="SHORT_TEXT" isCustomizable="false">
             <DefaultProviderPolicy defaultSystemProvider="STEP_COUNT" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingRoundRect x="10" y="-4" width="110" height="84" cornerRadius="20" />
             <Complication type="SHORT_TEXT">
-                <PartImage x="50" y="0" width="30" height="30">
+                <PartImage x="51" y="0" width="28" height="28">
                     <Variant mode="AMBIENT" target="alpha" value="110" />
                     <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
                 </PartImage>
                 <PartText x="0" y="32" width="130" height="40">
                     <Variant mode="AMBIENT" target="alpha" value="110" />
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="28" color="#FFFFFFFF">
+                        <Font family="SYNC_TO_DEVICE" size="26" color="#FFFFFFFF">
                             <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>
@@ -199,19 +215,19 @@
             </Complication>
         </ComplicationSlot>
 
-        <ComplicationSlot slotId="3" x="255" y="290" width="130" height="80"
+        <ComplicationSlot slotId="3" x="255" y="296" width="130" height="80"
             displayName="slot_right" supportedTypes="SHORT_TEXT" isCustomizable="false">
             <DefaultProviderPolicy defaultSystemProvider="HEART_RATE" defaultSystemProviderType="SHORT_TEXT" />
             <BoundingRoundRect x="10" y="-4" width="110" height="84" cornerRadius="20" />
             <Complication type="SHORT_TEXT">
-                <PartImage x="50" y="0" width="30" height="30">
+                <PartImage x="51" y="0" width="28" height="28">
                     <Variant mode="AMBIENT" target="alpha" value="110" />
                     <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
                 </PartImage>
                 <PartText x="0" y="32" width="130" height="40">
                     <Variant mode="AMBIENT" target="alpha" value="110" />
                     <Text align="CENTER">
-                        <Font family="SYNC_TO_DEVICE" size="28" color="#FFFFFFFF">
+                        <Font family="SYNC_TO_DEVICE" size="26" color="#FFFFFFFF">
                             <Template>%s<Parameter expression="[COMPLICATION.TEXT]" /></Template>
                         </Font>
                     </Text>

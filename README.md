@@ -2,8 +2,8 @@
 
 <p align="center"><img src="app/src/main/res/drawable/preview.png" alt="Minimal 24 watch face" width="300"></p>
 
-Pure-black digital face: 24h time with seconds, full day name and
-DD/MM/YYYY date, battery ring (outer, turns red below 15%), a selectable
+Pure-black digital face: large 24h time with small seconds, full day name (in the accent colour) and
+DD/MM/YYYY date, battery ring with a faint track (outer, turns red below 15%), a selectable
 inner ring (time left in the day by default, step goal, heart rate, or off) with
 its own colour, three fixed complications
 (sunrise/sunset, steps, heart rate). Accent colour is
