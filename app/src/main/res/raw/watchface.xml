@@ -39,7 +39,7 @@
             </Ellipse>
         </PartDraw>
 
-        <!-- Battery arc: outer ring, ends at 12 o'clock and drains clockwise toward it, full circle at 100%, red below 15% -->
+        <!-- Battery arc: outer ring, centred on 12 o'clock, drains from both ends, full circle at 100%, red below 15% -->
         <Condition>
             <Expressions>
                 <Expression name="lowBattery">[BATTERY_PERCENT] &lt; 15</Expression>
@@ -47,8 +47,9 @@
             <Compare expression="lowBattery">
                 <PartDraw x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                    <Arc centerX="225" centerY="225" width="432" height="432" startAngle="360" endAngle="360">
-                        <Transform target="startAngle" value="360 - [BATTERY_PERCENT] * 3.6" />
+                    <Arc centerX="225" centerY="225" width="432" height="432" startAngle="0" endAngle="0">
+                        <Transform target="startAngle" value="-[BATTERY_PERCENT] * 1.8" />
+                        <Transform target="endAngle" value="[BATTERY_PERCENT] * 1.8" />
                         <Stroke color="#FFFF3B30" thickness="5" cap="ROUND" />
                     </Arc>
                 </PartDraw>
@@ -56,15 +57,16 @@
             <Default>
                 <PartDraw x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
-                    <Arc centerX="225" centerY="225" width="432" height="432" startAngle="360" endAngle="360">
-                        <Transform target="startAngle" value="360 - [BATTERY_PERCENT] * 3.6" />
+                    <Arc centerX="225" centerY="225" width="432" height="432" startAngle="0" endAngle="0">
+                        <Transform target="startAngle" value="-[BATTERY_PERCENT] * 1.8" />
+                        <Transform target="endAngle" value="[BATTERY_PERCENT] * 1.8" />
                         <Stroke color="[CONFIGURATION.accent]" thickness="5" cap="ROUND" />
                     </Arc>
                 </PartDraw>
             </Default>
         </Condition>
 
-        <!-- Inner ring: user picks what it shows (or off); its own brighter colour -->
+        <!-- Inner ring: user picks what it shows (or off); centred on 12 like the battery ring -->
         <ListConfiguration id="inner_ring">
             <ListOption id="1">
                 <!-- Steps toward daily goal -->
@@ -77,7 +79,8 @@
                 <PartDraw x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
                     <Arc centerX="225" centerY="225" width="380" height="380" startAngle="0" endAngle="0">
-                        <Transform target="endAngle" value="clamp([STEP_COUNT] / [STEP_GOAL], 0, 1) * 360" />
+                        <Transform target="startAngle" value="-(clamp([STEP_COUNT] / [STEP_GOAL], 0, 1) * 360) / 2" />
+                        <Transform target="endAngle" value="(clamp([STEP_COUNT] / [STEP_GOAL], 0, 1) * 360) / 2" />
                         <Stroke color="[CONFIGURATION.ring_color]" thickness="3" cap="ROUND" />
                     </Arc>
                 </PartDraw>
@@ -93,7 +96,8 @@
                 <PartDraw x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
                     <Arc centerX="225" centerY="225" width="380" height="380" startAngle="0" endAngle="0">
-                        <Transform target="endAngle" value="360 - ([HOUR_0_23] * 60 + [MINUTE]) / 1440 * 360" />
+                        <Transform target="startAngle" value="-(360 - ([HOUR_0_23] * 60 + [MINUTE]) / 1440 * 360) / 2" />
+                        <Transform target="endAngle" value="(360 - ([HOUR_0_23] * 60 + [MINUTE]) / 1440 * 360) / 2" />
                         <Stroke color="[CONFIGURATION.ring_color]" thickness="3" cap="ROUND" />
                     </Arc>
                 </PartDraw>
@@ -109,7 +113,8 @@
                 <PartDraw x="0" y="0" width="450" height="450">
                     <Variant mode="AMBIENT" target="alpha" value="0" />
                     <Arc centerX="225" centerY="225" width="380" height="380" startAngle="0" endAngle="0">
-                        <Transform target="endAngle" value="clamp([HEART_RATE] / 200, 0, 1) * 360" />
+                        <Transform target="startAngle" value="-(clamp([HEART_RATE] / 200, 0, 1) * 360) / 2" />
+                        <Transform target="endAngle" value="(clamp([HEART_RATE] / 200, 0, 1) * 360) / 2" />
                         <Stroke color="[CONFIGURATION.ring_color]" thickness="3" cap="ROUND" />
                     </Arc>
                 </PartDraw>
